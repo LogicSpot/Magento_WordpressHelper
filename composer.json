@@ -1,0 +1,18 @@
+{
+  "name": "logicspot/wordpress_hlper",
+  "description": "Simple module adding directive for generating urls outside of Magento Base URL",
+  "type": "magento-module",
+  "homepage": "http://logicspot.com",
+  "license": "GPL-3.0",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "LogicSpot",
+      "email": "support@logicspot.com"
+    }
+  ],
+  "require":{
+    "logicspot/core":"*",
+    "magento-hackathon/magento-composer-installer":"*"
+  }
+}

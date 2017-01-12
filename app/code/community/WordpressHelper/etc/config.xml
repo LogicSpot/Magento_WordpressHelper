@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * LogicSpot_WordpressHelper
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GNU General Public License v3.0
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.gnu.org/licenses/gpl-3.0.txt
+ *
+ * @category    LogicSpot
+ * @package     LogicSpot_WordpressHelper
+ * @copyright   Copyright (c) 2017 LogicSpot (http://www.logicspot.com)
+ * @license     http://www.gnu.org/licenses/gpl-3.0.txt GNU General Public License v3.0
+ */
+-->
+<config>
+	<modules>
+		<LogicSpot_WordpressHelper>
+			<version>0.1.0</version>
+		</LogicSpot_WordpressHelper>
+	</modules>
+	<global>
+		<helpers>
+			<logicspot_wphelper>
+				<class>LogicSpot_WordpressHelper_Helper</class>
+			</logicspot_wphelper>
+		</helpers>
+		<models>
+			<core>
+				<rewrite>
+					<email_template_filter>LogicSpot_WordpressHelper_Model_Template_Filter</email_template_filter>
+				</rewrite>
+			</core>
+			<widget>
+				<rewrite>
+					<template_filter>LogicSpot_WordpressHelper_Model_Widget_Template_Filter</template_filter>
+				</rewrite>
+			</widget>
+			<cms>
+				<rewrite>
+					<template_filter>LogicSpot_WordpressHelper_Model_Cms_Template_Filter</template_filter>
+				</rewrite>
+			</cms>
+		</models>
+	</global>
+</config>

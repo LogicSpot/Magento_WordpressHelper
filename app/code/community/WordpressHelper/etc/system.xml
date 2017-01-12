@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * LogicSpot_WordpressHelper
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GNU General Public License v3.0
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.gnu.org/licenses/gpl-3.0.txt
+ *
+ * @category    LogicSpot
+ * @package     LogicSpot_WordpressHelper
+ * @copyright   Copyright (c) 2017 LogicSpot (http://www.logicspot.com)
+ * @license     http://www.gnu.org/licenses/gpl-3.0.txt GNU General Public License v3.0
+ */
+-->
+<config>
+	<sections>
+		<logicspot_wphelper>
+			<label>Wordpress</label>
+			<tab>logicspot_core</tab>
+			<sort_order>1</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general>
+					<label>General</label>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<sort_order>1</sort_order>
+					<fields>
+						<url>
+							<label>Wordpress Url</label>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Full url including protocol</comment>
+						</url>
+						<store_code>
+							<label>Include store code</label>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+						</store_code>
+					</fields>
+				</general>
+			</groups>
+		</logicspot_wphelper>
+	</sections>
+</config>

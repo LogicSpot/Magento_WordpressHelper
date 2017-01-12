@@ -1,0 +1,3 @@
+## Modman Module LogicSpot WordpressHelper
+app/code/community/LogicSpot/WordpressHelper/*            app/code/community/LogicSpot/WordpressHelper
+app/etc/modules/*                                         app/etc/modules/
