@@ -15,6 +15,24 @@
  * @license     http://www.gnu.org/licenses/gpl-3.0.txt GNU General Public License v3.0
  */
 
-class LogicSpot_WordpressHelper_Model_Widget_Template_Filter extends LogicSpot_WordpressHelper_Model_Cms_Template_Filter {
+class LogicSpot_WordpressHelper_Model_Widget_Template_Filter extends Mage_Newsletter_Model_Template_Filter {
+	/**
+	 * Retrieve wordpress URL directive
+	 *
+	 * @param array $construction
+	 * @return string
+	 */
+	public function wpDirective($construction)
+	{
+		$params = $this->_getIncludeParameters($construction[2]);
 
+		if (isset($params['url'])) {
+			$path = $params['url'];
+			unset($params['url']);
+
+			return Mage::helper('logicspot_wphelper')->generateUrl($path);
+		}
+
+		return '';
+	}
 }
