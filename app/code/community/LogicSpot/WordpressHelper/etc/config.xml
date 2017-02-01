@@ -46,4 +46,22 @@
 			</cms>
 		</models>
 	</global>
+	<frontend>
+		<routers>
+			<wphelper>
+				<use>standard</use>
+				<args>
+					<frontName>wphelper</frontName>
+					<module>LogicSpot_WordpressHelper</module>
+				</args>
+			</wphelper>
+		</routers>
+		<layout>
+			<updates>
+				<logicspot_wphelper>
+					<file>logicspot/wphelper.xml</file>
+				</logicspot_wphelper>
+			</updates>
+		</layout>
+	</frontend>
 </config>

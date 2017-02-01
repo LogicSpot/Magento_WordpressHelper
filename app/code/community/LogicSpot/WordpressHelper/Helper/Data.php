@@ -55,4 +55,24 @@ class LogicSpot_WordpressHelper_Helper_Data extends Mage_Core_Helper_Abstract {
 	{
 		return Mage::getStoreConfig(self::XML_WP_URL);
 	}
+
+	/**
+	 * Check if the Wordpress page exists based on slug
+	 *
+	 * @param $slug
+	 * @return bool
+	 */
+	public function wordpressSlugExists($slug) {
+		return true;
+	}
+
+	/**
+	 * Retrieve content of Wordpress page by it's slug
+	 *
+	 * @param $slug
+	 * @return string HTML of retrieved wordpress page
+	 */
+	public function getWordpressPageContent($slug) {
+		return '<h1>Hello World</h1>';
+	}
 }

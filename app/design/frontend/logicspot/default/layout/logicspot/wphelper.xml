@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout>
+    <wphelper_index_noroute>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+    </wphelper_index_noroute>
+</layout>

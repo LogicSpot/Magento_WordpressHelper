@@ -2,11 +2,15 @@
 
 This module adds additional template variable to allow generating urls outside of Magento base URL
 
+This module will also allow to process pages from wordpress, by overriding standard 404 behaviour.
+
 ##Usage
 In any template, CMS Page, widget or static block you can use following directive {{wp url='path-to-site'}} which will generate preconfigured url
 
+In System -> Configuration -> Web -> Default Pages change Default No-rouse URL to "wphelper/index/noRoute" 
+
 ##Installation
-There are 3 ways of installing WordpressHelper module:
+There are 2 ways of installing WordpressHelper module:
 
 - use [modman] script - run modman clone https://github.com/LogicSpot/Magento_WordpressHelper
 - Download module files and unpack them into your Magento install root directory
