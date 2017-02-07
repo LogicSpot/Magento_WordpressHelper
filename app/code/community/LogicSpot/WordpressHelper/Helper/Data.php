@@ -63,7 +63,13 @@ class LogicSpot_WordpressHelper_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return bool
 	 */
 	public function wordpressSlugExists($slug) {
-		return true;
+        $this->loadWordPress();
+
+        if (!is_404()) {
+            return true;
+        } else {
+            return false;
+        }
 	}
 
 	/**
@@ -73,6 +79,34 @@ class LogicSpot_WordpressHelper_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @return string HTML of retrieved wordpress page
 	 */
 	public function getWordpressPageContent($slug) {
-		return '<h1>Hello World</h1>';
+        $content = '';
+
+        if (have_posts()) :
+            while (have_posts()) : the_post();
+                $content .= '<p>';
+                $content .= '<h2>' . get_the_title() . '</h2><br>';
+                $content .= apply_filters('the_content', get_the_content()) . '<br>';
+                $content .= '</p>';
+            endwhile;
+        endif;
+
+        return $content;
 	}
+
+    /**
+     * Load WordPress Core, and initialise WP objects and globals.
+     */
+    public function loadWordPress() {
+        include Mage::getBaseDir() . '/core-wp/wp-load.php';
+
+        global $wp;
+
+        $wp->main();
+
+        // Load VC shortcodes if the class exists
+        if(class_exists('WPBMap')){
+            WPBMap::addAllMappedShortcodes();
+        }
+
+    }
 }
