@@ -62,7 +62,7 @@ class LogicSpot_WordpressHelper_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param $slug
 	 * @return bool
 	 */
-	public function wordpressSlugExists($slug) {
+	public function wordpressSlugExists() {
         $this->loadWordPress();
 
         return !is_404();
@@ -74,7 +74,7 @@ class LogicSpot_WordpressHelper_Helper_Data extends Mage_Core_Helper_Abstract {
 	 * @param $slug
 	 * @return string HTML of retrieved wordpress page
 	 */
-	public function getWordpressPageContent($slug) {
+	public function getWordpressPageContent() {
         $content = '';
 
         if (have_posts()) :
