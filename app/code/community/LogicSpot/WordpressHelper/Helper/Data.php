@@ -65,11 +65,7 @@ class LogicSpot_WordpressHelper_Helper_Data extends Mage_Core_Helper_Abstract {
 	public function wordpressSlugExists($slug) {
         $this->loadWordPress();
 
-        if (!is_404()) {
-            return true;
-        } else {
-            return false;
-        }
+        return !is_404();
 	}
 
 	/**
