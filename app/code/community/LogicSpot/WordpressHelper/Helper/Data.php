@@ -59,7 +59,6 @@ class LogicSpot_WordpressHelper_Helper_Data extends Mage_Core_Helper_Abstract {
 	/**
 	 * Check if the Wordpress page exists based on slug
 	 *
-	 * @param $slug
 	 * @return bool
 	 */
 	public function wordpressSlugExists() {
@@ -71,11 +70,13 @@ class LogicSpot_WordpressHelper_Helper_Data extends Mage_Core_Helper_Abstract {
 	/**
 	 * Retrieve content of Wordpress page by it's slug
 	 *
-	 * @param $slug
 	 * @return string HTML of retrieved wordpress page
 	 */
 	public function getWordpressPageContent() {
         $content = '';
+
+        $content .= $this->addPageCustomCss();
+        $content .= $this->addShortcodesCustomCss();
 
         if (have_posts()) :
             while (have_posts()) : the_post();
@@ -104,5 +105,62 @@ class LogicSpot_WordpressHelper_Helper_Data extends Mage_Core_Helper_Abstract {
             WPBMap::addAllMappedShortcodes();
         }
 
+    }
+
+    /**
+     * Method gets post meta value for page by key '_wpb_post_custom_css' and if it is not empty
+     * outputs css string wrapped into style tag.
+     *
+     * @param int $id
+     * @return string HTML of retrieved CSS rules
+     */
+    public function addPageCustomCss($id = null) {
+        if (!is_singular()) {
+            return '';
+        }
+
+        if (!$id) {
+            $id = get_the_ID();
+        }
+
+        if ($id) {
+            $post_custom_css = get_post_meta($id, '_wpb_post_custom_css', true);
+            if (!empty($post_custom_css)) {
+                $post_custom_css = strip_tags($post_custom_css);
+                $style = '<style type="text/css" data-type="vc_custom-css">';
+                $style .= $post_custom_css;
+                $style .= '</style>';
+                return $style;
+            }
+        }
+    }
+
+    /**
+     * Method gets post meta value for page by key '_wpb_shortcodes_custom_css' and if it is not empty
+     * outputs css string wrapped into style tag.
+     *
+     * @param int $id
+     * @return string HTML of retrieved CSS rules
+     *
+     */
+    public function addShortcodesCustomCss($id = null) {
+        if (!is_singular()) {
+            return '';
+        }
+
+        if (!$id) {
+            $id = get_the_ID();
+        }
+
+        if ($id) {
+            $shortcodes_custom_css = get_post_meta($id, '_wpb_shortcodes_custom_css', true);
+            if (!empty($shortcodes_custom_css)) {
+                $shortcodes_custom_css = strip_tags($shortcodes_custom_css);
+                $style = '<style type="text/css" data-type="vc_shortcodes-custom-css">';
+                $style .= $shortcodes_custom_css;
+                $style .= '</style>';
+                return $style;
+            }
+        }
     }
 }
