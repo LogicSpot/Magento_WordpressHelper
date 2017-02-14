@@ -27,7 +27,7 @@ class LogicSpot_WordpressHelper_IndexController extends Mage_Cms_IndexController
 	public function noRouteAction($coreRoute = null)
 	{
 
-		if (Mage::helper('logicspot_wphelper')->wordpressSlugExists('')) {
+		if (Mage::helper('logicspot_wphelper')->wordpressSlugExists()) {
 			$this->loadLayout();
 
 			$block = $this->getLayout()->createBlock(
