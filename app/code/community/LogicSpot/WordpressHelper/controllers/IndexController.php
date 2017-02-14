@@ -28,12 +28,20 @@ class LogicSpot_WordpressHelper_IndexController extends Mage_Cms_IndexController
 	{
 
 		if (Mage::helper('logicspot_wphelper')->wordpressSlugExists()) {
+		    $query = Mage::helper('logicspot_wphelper')->getWordpressQueryObject();
+
 			$this->loadLayout();
 
+			$blockType = $query->is_archive || $query->is_home ? 'logicspot_wphelper/list' : 'logicspot_wphelper/post';
+
+			//set page title
+            $this->getLayout()->getBlock('head')->setTitle($this->__('Page title'));
+
+            //create block with content
 			$block = $this->getLayout()->createBlock(
-				'Mage_Core_Block_Text',
+				$blockType,
 				'logicspot_wordpress_page',
-				array('text' => Mage::helper('logicspot_wphelper')->getWordpressPageContent(''))
+				array('query' => $query)
 			);
 
 			$this->getLayout()->getBlock('content')->append($block);

@@ -28,6 +28,11 @@
 				<class>LogicSpot_WordpressHelper_Helper</class>
 			</logicspot_wphelper>
 		</helpers>
+		<blocks>
+			<logicspot_wphelper>
+				<class>LogicSpot_WordpressHelper_Block</class>
+			</logicspot_wphelper>
+		</blocks>
 		<models>
 			<core>
 				<rewrite>
